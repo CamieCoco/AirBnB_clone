@@ -1,0 +1,8 @@
+# Tmp files
+*~
+
+# Pycache files
+*__pycache__*
+
+# Temporarily created file from running console
+file.json
