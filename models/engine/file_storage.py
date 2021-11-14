@@ -18,7 +18,7 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
     classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-           "Place": Place, "Review": Review, "State": State, "User": User}
+               "Place": Place, "Review": Review, "State": State, "User": User}
 
     def all(self):
         """returns the dictionary __objects"""
@@ -27,7 +27,7 @@ class FileStorage:
     def new(self, obj):
         """sets in __objects the obj with key <obj class name>.id"""
         if obj:
-            key = obj.__class__.__name__ + "." + obj.id
+            key = '{}.{}'.format(obj.__class__.__name__, obj.id)
             self.__objects[key] = obj
 
     def save(self):
@@ -45,5 +45,5 @@ class FileStorage:
                 js = json.load(f)
             for key in js:
                 self.__objects[key] = classes[js[key]["__class__"]](**js[key])
-        except:
+        except FileNotFoundError:
             pass
