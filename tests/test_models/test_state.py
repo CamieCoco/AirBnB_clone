@@ -2,7 +2,7 @@
 
 import unittest
 import os
-]11;rgb:0000/0000/0000\import pep8
+import pep8
 from models.state import State
 from models.base_model import BaseModel
 
@@ -31,16 +31,16 @@ class TestState(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_is_subclass(self):
-        self.assertTrue(issubclass(self.state1._class_, BaseModel), True)
+        self.assertTrue(issubclass(self.state1.__class__, BaseModel), True)
 
     def test_checking_for_functions(self):
-        self.assertIsNotNone(State._doc_)
+        self.assertIsNotNone(State.__doc__)
 
     def test_has_attributes(self):
-        self.assertTrue('id' in self.state1._dict_)
-        self.assertTrue('created_at' in self.state1._dict_)
-        self.assertTrue('updated_at' in self.state1._dict_)
-        self.assertTrue('name' in self.state1._dict_)
+        self.assertTrue('id' in self.state1.__dict__)
+        self.assertTrue('created_at' in self.state1.__dict__)
+        self.assertTrue('updated_at' in self.state1.__dict__)
+        self.assertTrue('name' in self.state1.__dict__)
 
     def test_attributes_are_strings(self):
         self.assertEqual(type(self.state1.name), str)
@@ -53,5 +53,5 @@ class TestState(unittest.TestCase):
         self.assertEqual('to_dict' in dir(self.state1), True)
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     unittest.main()

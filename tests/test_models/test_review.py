@@ -33,18 +33,18 @@ class TestReview(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_is_subclass(self):
-        self.assertTrue(issubclass(self.rev1._class_, BaseModel), True)
+        self.assertTrue(issubclass(self.rev1.__class__, BaseModel), True)
 
     def test_checking_for_functions(self):
-        self.assertIsNotNone(Review._doc_)
+        self.assertIsNotNone(Review.__doc__)
 
     def test_has_attributes(self):
-        self.assertTrue('id' in self.rev1._dict_)
-        self.assertTrue('created_at' in self.rev1._dict_)
-        self.assertTrue('updated_at' in self.rev1._dict_)
-        self.assertTrue('place_id' in self.rev1._dict_)
-        self.assertTrue('text' in self.rev1._dict_)
-        self.assertTrue('user_id' in self.rev1._dict_)
+        self.assertTrue('id' in self.rev1.__dict__)
+        self.assertTrue('created_at' in self.rev1.__dict__)
+        self.assertTrue('updated_at' in self.rev1.__dict__)
+        self.assertTrue('place_id' in self.rev1.__dict__)
+        self.assertTrue('text' in self.rev1.__dict__)
+        self.assertTrue('user_id' in self.rev1.__dict__)
 
     def test_attributes_are_strings(self):
         self.assertEqual(type(self.rev1.text), str)
@@ -59,5 +59,5 @@ class TestReview(unittest.TestCase):
         self.assertEqual('to_dict' in dir(self.rev1), True)
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     unittest.main()
