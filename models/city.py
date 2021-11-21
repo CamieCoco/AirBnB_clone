@@ -1,20 +1,16 @@
 #!/usr/bin/python3
-"""
-Module City class
-"""
+'''
+Defines the City class
+'''
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """
-    Inherits from BaseModel
-    Public class attributes:
-        state_id: (str) will be State.id
-        name:     (str)
-    """
-    state_id = ""
-    name = ""
+    '''Cities for Hbnb application
+    Attributes:
+    state_id (str): will be State.id
+        name (str): name of the States
+    '''
 
-    def __init__(self, *args, **kwargs):
-        """initializes city"""
-        super().__init__(*args, **kwargs)
+    state_id = ''
+    name = ''
